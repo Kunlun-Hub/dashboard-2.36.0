@@ -1719,6 +1719,23 @@ export const messages = {
     "peer.requireLoginAfterDisconnect": "Require login after disconnect",
     "peer.requireLoginAfterDisconnectDescription":
       "When enabled, users must re-authenticate after being disconnected from management for 10 minutes.",
+    "peer.accessiblePeersDescription":
+      "This peer can connect to the following peers within the NetBird network.",
+    "peer.loginExpiredTooltipLine1":
+      "This peer is offline and needs to be",
+    "peer.loginExpiredTooltipLine2":
+      "re-authenticated because its login has expired.",
+    "peer.expirationDisabledTooltip": "Expiration is disabled for this peer.",
+    "peer.ephemeralTooltip":
+      "This peer is an ephemeral peer. If it is disconnected for more than 10 minutes it will be removed.",
+    "peer.sessionExpirationSetupKeyDisabled":
+      "This setting is disabled for all peers added with a setup key.",
+    "peer.updateSettingPermissionDenied":
+      "You don't have the required permissions to update this setting.",
+    "peer.peerSessionExpirationLabel": "Peer Session Expiration",
+    "peer.globalSettingDisabledPrefix":
+      "Global setting '{setting}' is currently disabled. Enable the global setting to be able to toggle it individually per peer.",
+    "peer.goToSettings": "Go to Settings",
     "groups.searchGroup": "Search group...",
     "groups.searchGroups": "Search groups...",
     "groups.allGroups": "All Groups",
@@ -3450,6 +3467,21 @@ export const messages = {
     "peer.updatingSetting": "更新设置中...",
     "peer.requireLoginAfterDisconnect": "断开连接后需要登录",
     "peer.requireLoginAfterDisconnectDescription": "启用后，用户从管理中断开连接 10 分钟后需要重新认证。",
+    "peer.accessiblePeersDescription":
+      "此设备可以连接到 NetBird 网络中的以下设备。",
+    "peer.loginExpiredTooltipLine1": "此设备当前离线，需要重新认证，",
+    "peer.loginExpiredTooltipLine2": "因为它的登录状态已过期。",
+    "peer.expirationDisabledTooltip": "此设备的过期设置已禁用。",
+    "peer.ephemeralTooltip":
+      "此设备是临时设备。如果断开连接超过 10 分钟，它将被移除。",
+    "peer.sessionExpirationSetupKeyDisabled":
+      "通过安装密钥添加的所有设备都无法使用此设置。",
+    "peer.updateSettingPermissionDenied":
+      "你没有更新此设置所需的权限。",
+    "peer.peerSessionExpirationLabel": "设备会话过期",
+    "peer.globalSettingDisabledPrefix":
+      "全局设置“{setting}”当前已禁用。请先启用全局设置，然后才能为单个设备单独切换。",
+    "peer.goToSettings": "前往设置",
     "invite.createUserTitle": "创建用户",
     "invite.inviteUserTitle": "邀请用户",
     "invite.cloudDescription": "邀请用户加入你的网络，并为他们设置权限。",

@@ -3,6 +3,7 @@
 
 # trae
 /.trae/
+netbird-dashboard-dev.tar
 
 # dependencies
 /node_modules
