@@ -37,7 +37,7 @@ export const JSONFileUpload = ({ onChange }: Props) => {
       if (e.target === null) return;
       onChange(e.target.result as string);
       notify({
-        title: "Google Workspace",
+        title: t("jsonFileUpload.googleWorkspace"),
         description: t("jsonFileUpload.successDescription"),
         icon: <FileJson2 size={16} />,
       });

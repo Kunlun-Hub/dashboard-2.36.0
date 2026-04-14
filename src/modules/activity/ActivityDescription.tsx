@@ -9,12 +9,14 @@ import React, { useMemo } from "react";
 import RoundedFlag from "@/assets/countries/RoundedFlag";
 import { useCountries } from "@/contexts/CountryProvider";
 import { ActivityEvent } from "@/interfaces/ActivityEvent";
+import { useI18n } from "@/i18n/I18nProvider";
 
 type Props = {
   event: ActivityEvent;
 };
 
 export default function ActivityDescription({ event }: Props) {
+  const { t } = useI18n();
   const m = event.meta;
   const meta = useMemo(() => {
     if (event.meta) {
@@ -463,13 +465,25 @@ export default function ActivityDescription({ event }: Props) {
     );
 
   if (event.activity_code == "account.setting.peer.login.expiration.update")
-    return <div className={"inline"}>Global login expiration was updated</div>;
+    return (
+      <div className={"inline"}>
+        {t("activity.globalLoginExpirationUpdated")}
+      </div>
+    );
 
   if (event.activity_code == "account.setting.peer.login.expiration.enable")
-    return <div className={"inline"}>Global login expiration was enabled</div>;
+    return (
+      <div className={"inline"}>
+        {t("activity.globalLoginExpirationEnabled")}
+      </div>
+    );
 
   if (event.activity_code == "account.setting.peer.login.expiration.disable")
-    return <div className={"inline"}>Global login expiration was disabled</div>;
+    return (
+      <div className={"inline"}>
+        {t("activity.globalLoginExpirationDisabled")}
+      </div>
+    );
 
   if (event.activity_code == "account.network.range.update")
     return (
@@ -605,7 +619,7 @@ export default function ActivityDescription({ event }: Props) {
     );
 
   if (event.activity_code == "transferred.owner.role")
-    return <div className={"inline"}>Owner role was transferred</div>;
+    return <div className={"inline"}>{t("activity.ownerRoleTransferred")}</div>;
 
   /**
    * EDR
@@ -829,9 +843,9 @@ export default function ActivityDescription({ event }: Props) {
         <FullTooltip
           content={
             <div className={"pb-1"}>
-              <Label className={"mb-3"}>Activity Code</Label>
+              <Label className={"mb-3"}>{t("activity.activityCode")}</Label>
               <Value>{event.activity_code}</Value>
-              <Label className={"my-3"}>Meta</Label>
+              <Label className={"my-3"}>{t("activity.meta")}</Label>
               {meta &&
                 meta.map((item) => (
                   <React.Fragment key={item?.key}>
@@ -872,20 +886,21 @@ function Value({
 }
 
 function PeerConnectionInfo({ meta }: { meta: any }) {
+  const { t } = useI18n();
   const hasMeta =
     !isEmpty(meta?.location_country_code) ||
     !isEmpty(meta?.location_connection_ip);
   const { countries } = useCountries();
 
   const countryText = useMemo(() => {
-    if (!countries) return "Unknown";
+    if (!countries) return t("common.unknown");
     const country = countries.find(
       (c) => c.country_code === meta?.location_country_code,
     );
-    if (!country) return "Unknown";
+    if (!country) return t("common.unknown");
     if (!meta?.location_city_name) return country.country_name;
     return `${country.country_name}, ${meta?.location_city_name}`;
-  }, [countries, meta]);
+  }, [countries, meta, t]);
 
   return hasMeta ? (
     <>
