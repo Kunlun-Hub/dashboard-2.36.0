@@ -112,12 +112,12 @@ export function PeerGroupSelector({
   closeOnSelect = false,
   resource,
   onResourceChange,
-  placeholder = "Add or select group(s)...",
+  placeholder,
   customTrigger,
   align = "start",
   side = "bottom",
   users,
-  placeholderForSearch = 'Search groups or add new group by pressing "Enter"...',
+  placeholderForSearch,
   resourceIds,
   additionalResources,
   policies,
@@ -141,6 +141,10 @@ export function PeerGroupSelector({
     useGroups();
 
   const { t } = useI18n();
+  const resolvedPlaceholder =
+    placeholder ?? t("peerGroupSelector.addOrSelectGroups");
+  const resolvedSearchPlaceholder =
+    placeholderForSearch ?? t("peerGroupSelector.searchGroups");
 
   const searchRef = React.useRef<HTMLInputElement>(null);
 
@@ -291,11 +295,11 @@ export function PeerGroupSelector({
   }, [tab]);
 
   const searchPlaceholder = useMemo(() => {
-    if (tab === "groups") return placeholderForSearch;
+    if (tab === "groups") return resolvedSearchPlaceholder;
     if (tab === "resources") return t("peerGroupSelector.searchResource");
     if (tab === "peers") return t("peerGroupSelector.searchPeer");
     return t("peerGroupSelector.search");
-  }, [tab, placeholderForSearch, t]);
+  }, [resolvedSearchPlaceholder, tab, t]);
 
   const selectResource = (resource?: NetworkResource) => {
     onResourceChange?.(
@@ -422,8 +426,12 @@ export function PeerGroupSelector({
               })}
 
               {values.length == 0 && !resource && (
-                <span className={cn(typeof placeholder === "string" && "pl-1")}>
-                  {placeholder}
+                <span
+                  className={cn(
+                    typeof resolvedPlaceholder === "string" && "pl-1",
+                  )}
+                >
+                  {resolvedPlaceholder}
                 </span>
               )}
             </div>

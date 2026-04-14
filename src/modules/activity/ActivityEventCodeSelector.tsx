@@ -12,6 +12,7 @@ import { useMemo, useState } from "react";
 import { useElementSize } from "@/hooks/useElementSize";
 import { ActivityEvent } from "@/interfaces/ActivityEvent";
 import ActivityTypeIcon from "@/modules/activity/ActivityTypeIcon";
+import { useI18n } from "@/i18n/I18nProvider";
 
 interface MultiSelectProps {
   values: string[];
@@ -27,6 +28,7 @@ export function ActivityEventCodeSelector({
   popoverWidth = 400,
   events,
 }: MultiSelectProps) {
+  const { t } = useI18n();
   const searchRef = React.useRef<HTMLInputElement>(null);
   const [inputRef, { width }] = useElementSize<HTMLButtonElement>();
   const [search, setSearch] = useState("");
@@ -79,9 +81,11 @@ export function ActivityEventCodeSelector({
           <Layers size={16} className={"shrink-0"} />
           <div className={"w-full flex justify-between"}>
             {values.length > 0 ? (
-              <div>{values.length} Event(s)</div>
+              <div>
+                {values.length} {t("activity.eventCount")}
+              </div>
             ) : (
-              "All Event Types"
+              t("activity.allEventTypes")
             )}
             <div className={"pl-2"}>
               <ChevronsUpDown size={18} className={"shrink-0"} />
@@ -120,7 +124,7 @@ export function ActivityEventCodeSelector({
                 ref={searchRef}
                 value={search}
                 onValueChange={setSearch}
-                placeholder={"Search event..."}
+                placeholder={t("activity.searchPlaceholder")}
               />
               <div
                 className={
