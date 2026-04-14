@@ -52,7 +52,9 @@ export function I18nProvider({
       locales,
       setLocale,
       t: (key, values) => {
-        const message = messages[locale][key] ?? messages.en[key] ?? key;
+        const localeMessages = messages[locale] as Record<string, string>;
+        const enMessages = messages.en as Record<string, string>;
+        const message = localeMessages[key] ?? enMessages[key] ?? key;
         return interpolate(message, values);
       },
     };

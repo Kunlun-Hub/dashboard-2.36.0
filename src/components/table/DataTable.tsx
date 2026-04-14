@@ -250,6 +250,7 @@ export function DataTable<TData, TValue>({
   initialSearch,
   onSearchClick,
 }: Readonly<DataTableProps<TData, TValue>>) {
+  const { t } = useI18n();
   const path = usePathname();
   const isInitialRender = useRef(true);
 
