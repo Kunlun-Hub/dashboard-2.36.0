@@ -79,6 +79,19 @@ export function UserRoleSelector({
   align = "start",
 }: Readonly<MultiSelectProps>) {
   const { t } = useI18n();
+
+  const getRoleName = (roleValue: Role) => {
+    switch(roleValue) {
+      case Role.Owner: return t("userRoles.owner");
+      case Role.Admin: return t("userRoles.admin");
+      case Role.NetworkAdmin: return t("userRoles.networkAdmin");
+      case Role.BillingAdmin: return t("userRoles.billingAdmin");
+      case Role.Auditor: return t("userRoles.auditor");
+      case Role.User: return t("userRoles.user");
+      default: return "";
+    }
+  };
+
   const [inputRef, { width }] = useElementSize<
     HTMLButtonElement | HTMLDivElement
   >();
@@ -150,7 +163,7 @@ export function UserRoleSelector({
                   <selectedRole.icon size={14} width={14} />
                   <div className={"flex flex-col text-sm font-medium"}>
                     <span className={"text-nb-gray-200 whitespace-nowrap"}>
-                      {selectedRole?.name}
+                      {getRoleName(selectedRole.value)}
                     </span>
                   </div>
                 </div>
@@ -213,7 +226,7 @@ export function UserRoleSelector({
                               "flex flex-col text-sm font-medium text-nb-gray-200 whitespace-nowrap"
                             }
                           >
-                            {item.name}
+                            {getRoleName(item.value)}
                           </div>
                         </div>
                       </CommandItem>

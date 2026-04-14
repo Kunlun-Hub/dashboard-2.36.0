@@ -92,7 +92,7 @@ export function ServiceUserModalContent({ onSuccess }: Readonly<ModalProps>) {
                   <User2 size={16} className={"text-nb-gray-300"} />
                 </div>
               }
-              placeholder={"John Doe"}
+              placeholder={t("invite.namePlaceholder")}
               value={name}
               data-cy={"service-user-name"}
               onChange={(e) => setName(e.target.value)}

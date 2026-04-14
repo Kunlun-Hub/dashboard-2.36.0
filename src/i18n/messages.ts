@@ -1,4 +1,4 @@
-﻿export const locales = ["en", "zh-CN"] as const;
+export const locales = ["en", "zh-CN"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -138,6 +138,19 @@ export const messages = {
     "nameservers.description":
       "Add nameservers for domain name resolution in your NetBird network.",
     "nameservers.tableTitle": "Nameservers",
+    "nameserverTemplate.google": "Google DNS",
+    "nameserverTemplate.googleDesc":
+      "A free, global DNS resolution service by Google that implements a number of security, performance, and compliance improvements.",
+    "nameserverTemplate.cloudflare": "Cloudflare DNS",
+    "nameserverTemplate.cloudflareDesc":
+      "Enterprise-grade DNS service that offers the fastest response time, unparalleled redundancy, and advanced security with built-in DDoS mitigation and DNSSEC.",
+    "nameserverTemplate.quad9": "Quad9 DNS",
+    "nameserverTemplate.quad9Desc":
+      "The Quad9 DNS service is operated by the Swiss-based Quad9 Foundation, whose mission is to provide a safer and more robust Internet for everyone.",
+    "nameserverTemplate.custom": "Custom DNS",
+    "nameserverTemplate.customDesc":
+      "Use custom nameservers to resolve domains in your network. You can either use a public DNS or your own nameservers.",
+    "nameserverTemplate.learnMore": "Learn more",
     "nameservers.searchPlaceholder":
       "Search by name, domains or nameservers...",
     "nameservers.emptyGroupTitle":
@@ -1514,6 +1527,12 @@ export const messages = {
       "It looks like your login session is no longer active or has expired. Please login again to continue using the app.",
     "session.login": "Login",
     "groups.searchPlaceholder": "Search group by name...",
+    "groups.searchGroup": "Search group...",
+    "groups.searchGroups": "Search groups...",
+    "groups.allGroups": "All Groups",
+    "groups.notFound": "Seems like you don't have any groups.",
+    "groups.noMatching": "There are no groups matching your search. Try another search term.",
+    "groups.count.groups": "Group(s)",
     "groups.used": "Used",
     "groups.unused": "Unused",
     "groups.inUse": "In Use",
@@ -1690,8 +1709,45 @@ export const messages = {
       "Add this resource to a group (e.g., Databases, Web Servers) and reference the group",
     "networkResources.groupsHelpLine2":
       "in access policies to simplify management.",
+    "networkRoutingPeers.addTitle": "Add Routing Peer",
+    "networkRoutingPeers.updateTitle": "Update Routing Peer",
+    "networkRoutingPeers.description": "Route traffic to '{name}'",
+    "networkRoutingPeers.addedSuccessfully": "Routing Peer added successfully.",
+    "networkRoutingPeers.adding": "Adding Routing Peer...",
+    "networkRoutingPeers.tabs.routingPeers": "Routing Peers",
+    "networkRoutingPeers.tabs.advanced": "Advanced Settings",
+    "networkRoutingPeers.segment.peer": "Routing Peers",
+    "networkRoutingPeers.segment.peerHelp":
+      "Assign a single or multiple peers as routing peers for the network.",
+    "networkRoutingPeers.segment.group": "Peer Group",
+    "networkRoutingPeers.segment.groupHelp":
+      "Assign a peer group with machines to be used as routing peers.",
+    "networkRoutingPeers.dontHave": "Don't have a routing peer?",
+    "networkRoutingPeers.dontHaveHelp":
+      "You can install NetBird with a setup key on one or more machines to act as routing peers.",
+    "networkRoutingPeers.enable": "Enable Routing Peer",
+    "networkRoutingPeers.enableHelp":
+      "Use this switch to enable or disable the routing peer.",
+    "networkRoutingPeers.metric": "Metric",
+    "networkRoutingPeers.metricHelp":
+      "A lower metric indicates higher priority routing peers.",
+    "networkRoutingPeers.createSetupKeyTitle": "Create a Setup Key?",
+    "networkRoutingPeers.createSetupKeyDescription":
+      "If you continue, a one-off setup key will be automatically created and you will be able to install NetBird.",
+    "networkRoutingPeers.masqueradeHelp":
+      "Allow access to your private networks without configuring routes on your local routers or other devices.",
+    "networkRoutingPeers.masqueradeTooltip":
+      "Masquerade needs to be enabled for non-Linux routing peers.",
+    "networkRoutingPeers.masqueradeWarningPrefix": "Group ",
+    "networkRoutingPeers.masqueradeWarningSuffix":
+      " contains at least one non-Linux peer. Disabled Masquerade will have no effect on non-Linux routing peers.",
     "networkResources.groupsPlaceholder":
       "Add or select resource group(s)...",
+    "networkResources.groupsUpdateTitle": "Update Resource",
+    "networkResources.groupsUpdateDescription": "'{name}' groups updated",
+    "networkResources.groupsUpdating": "Updating resource groups...",
+    "networkResources.groupsModalDescription":
+      "Add this resource to a group (e.g., Databases, Web Servers) and reference the group in access policies to simplify management.",
     "networkResources.groupPolicyPrefix":
       "Your selected resource groups are used in",
     "networkResources.groupPolicyCount": "{count} Access Control Policies",
@@ -2472,6 +2528,19 @@ Get started by adding one to your network.",
     "nameservers.description":
       "为你的 NetBird 网络添加用于域名解析的域名服务器。",
     "nameservers.tableTitle": "域名服务器",
+    "nameserverTemplate.google": "Google DNS",
+    "nameserverTemplate.googleDesc":
+      "由 Google 提供的一个免费全球 DNS 解析服务，实现了众多安全性、性能与合规性的提升。",
+    "nameserverTemplate.cloudflare": "Cloudflare DNS",
+    "nameserverTemplate.cloudflareDesc":
+      "企业级 DNS 服务，提供极快的响应时间、卓越的冗余能力，并内置 DDoS 缓解和 DNSSEC 等高级安全特性。",
+    "nameserverTemplate.quad9": "Quad9 DNS",
+    "nameserverTemplate.quad9Desc":
+      "Quad9 DNS 服务由总部位于瑞士的 Quad9 基金会运营，其使命是为所有人提供一个更安全、更健壮的互联网。",
+    "nameserverTemplate.custom": "自定义 DNS",
+    "nameserverTemplate.customDesc":
+      "使用自定义名称服务器来解析您的网络域名。您可以使用公共 DNS，也可以使用您自己的名称服务器。",
+    "nameserverTemplate.learnMore": "了解更多",
     "nameservers.searchPlaceholder": "按名称、域名或名称服务器搜索...",
     "nameservers.emptyGroupTitle": "这个分组还没有被任何域名服务器使用",
     "nameservers.emptyGroupDescription":
@@ -3724,6 +3793,12 @@ Get started by adding one to your network.",
       "你的登录会话似乎已失效或已过期。请重新登录以继续使用应用。",
     "session.login": "登录",
     "groups.searchPlaceholder": "按分组名称搜索...",
+    "groups.searchGroup": "搜索分组...",
+    "groups.searchGroups": "搜索分组...",
+    "groups.allGroups": "所有分组",
+    "groups.notFound": "似乎您还没有任何分组。",
+    "groups.noMatching": "没有匹配搜索条件的分组。请尝试其他搜索词。",
+    "groups.count.groups": "个分组",
     "groups.used": "已使用",
     "groups.unused": "未使用",
     "groups.inUse": "使用中",
@@ -3895,8 +3970,45 @@ Get started by adding one to your network.",
       "将此资源加入一个分组（例如：数据库、Web 服务器），并在",
     "networkResources.groupsHelpLine2":
       "访问策略中引用该分组，以简化管理。",
+    "networkRoutingPeers.addTitle": "添加路由设备",
+    "networkRoutingPeers.updateTitle": "更新路由设备",
+    "networkRoutingPeers.description": "将流量路由到“{name}”",
+    "networkRoutingPeers.addedSuccessfully": "路由设备添加成功。",
+    "networkRoutingPeers.adding": "正在添加路由设备...",
+    "networkRoutingPeers.tabs.routingPeers": "路由设备",
+    "networkRoutingPeers.tabs.advanced": "高级设置",
+    "networkRoutingPeers.segment.peer": "单台设备",
+    "networkRoutingPeers.segment.peerHelp":
+      "分配单台或多台设备作为该网络的路由设备。",
+    "networkRoutingPeers.segment.group": "设备分组",
+    "networkRoutingPeers.segment.groupHelp":
+      "分配包含机器的设备分组作为路由设备。",
+    "networkRoutingPeers.dontHave": "没有路由设备？",
+    "networkRoutingPeers.dontHaveHelp":
+      "您可以使用安装密钥在一台或多台机器上安装 NetBird 作为路由设备。",
+    "networkRoutingPeers.enable": "启用路由设备",
+    "networkRoutingPeers.enableHelp":
+      "使用此开关可启用或禁用此路由设备。",
+    "networkRoutingPeers.metric": "跃点数 (Metric)",
+    "networkRoutingPeers.metricHelp":
+      "较小的跃点数表示较高的路由优先级。",
+    "networkRoutingPeers.createSetupKeyTitle": "创建安装密钥？",
+    "networkRoutingPeers.createSetupKeyDescription":
+      "如果继续，将自动创建一次性安装密钥，您便可安装 NetBird。",
+    "networkRoutingPeers.masqueradeHelp":
+      "在不配置本地路由器或其他设备上的路由的情况下，允许访问您的专用网络。",
+    "networkRoutingPeers.masqueradeTooltip":
+      "非 Linux 路由设备需要启用地址伪装。",
+    "networkRoutingPeers.masqueradeWarningPrefix": "分组 ",
+    "networkRoutingPeers.masqueradeWarningSuffix":
+      " 至少包含一个非 Linux 设备。禁用地址伪装对非 Linux 路由设备无效。",
     "networkResources.groupsPlaceholder":
       "添加或选择资源分组...",
+    "networkResources.groupsUpdateTitle": "更新资源",
+    "networkResources.groupsUpdateDescription": "“{name}”的分组已更新",
+    "networkResources.groupsUpdating": "正在更新资源分组...",
+    "networkResources.groupsModalDescription":
+      "将此资源添加到分组中（例如：数据库、Web服务器），并在访问策略中引用该分组以简化管理。",
     "networkResources.groupPolicyPrefix":
       "你选择的资源分组已被用于",
     "networkResources.groupPolicyCount": "{count} 条访问控制策略",
