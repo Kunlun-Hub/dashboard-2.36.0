@@ -171,6 +171,7 @@ export const UserListItem = ({
   className,
   variant,
 }: UserListItemProps) => {
+  const { t } = useI18n();
   const isSystemUser = user?.email === "NetBird" || user?.email === "";
   const maxChars = variant === "selected" ? 30 : 20;
 
