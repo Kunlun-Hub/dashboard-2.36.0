@@ -161,9 +161,9 @@ export const NetworkProvider = ({
         : undefined,
       name:
         network && !resource
-          ? `${network?.name} Policy`
+          ? t("networks.defaultPolicyName", { name: network?.name || "" })
           : resource
-          ? `${resource?.name} Policy`
+          ? t("networks.defaultPolicyName", { name: resource?.name || "" })
           : "",
       description:
         network && !resource
@@ -508,6 +508,7 @@ export const useNetworksContext = () => {
 };
 
 function AffectedResourceList({ resources }: { resources: NetworkResource[] }) {
+  const { t } = useI18n();
   const maxVisible = 6;
   const visible = resources.slice(0, maxVisible);
   const remaining = resources.length - maxVisible;
@@ -534,7 +535,7 @@ function AffectedResourceList({ resources }: { resources: NetworkResource[] }) {
       ))}
       {remaining > 0 && (
         <div className="border-t border-nb-gray-900 px-3 py-2 text-nb-gray-200">
-          + {remaining} more
+          {t("common.moreCount", { count: remaining })}
         </div>
       )}
     </div>
