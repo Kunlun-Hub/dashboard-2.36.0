@@ -287,7 +287,9 @@ function RoutingPeerModalContent({
                 </HelpText>
               </div>
               <InstallNetBirdWithSetupKeyButton
-                name={`Routing Peer (${network.name})`}
+                name={t("networkRoutingPeers.setupKeyName", {
+                  name: network.name,
+                })}
               />
             </div>
           </div>

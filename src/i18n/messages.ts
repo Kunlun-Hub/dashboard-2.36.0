@@ -29,6 +29,9 @@ export const messages = {
     "common.copiedToClipboard": "Copied to clipboard",
     "common.close": "Close",
     "common.delete": "Delete",
+    "common.disabled": "Disabled",
+    "common.none": "None",
+    "common.moreCount": "+ {count} more",
     "common.remove": "Remove",
     "common.learnMorePrefix": "Learn more about",
     "common.inDocumentationSuffix": "in our documentation.",
@@ -644,6 +647,7 @@ export const messages = {
     "networks.description":
       "Networks allow you to access internal resources in LANs and VPCs without installing NetBird on every machine.",
     "networks.policyLabel": "policy",
+    "networks.defaultPolicyName": "{name} Policy",
     "networks.multiPolicyTitle": "This policy is used by multiple resources",
     "networks.multiPolicyDescription":
       "This policy uses one or many resource group(s) as destinations. {action} this policy will also affect following resources:",
@@ -1455,6 +1459,7 @@ export const messages = {
     "peerSsh.enableAccess": "Enable SSH Access",
     "peerSsh.enableAccessDescription":
       "Allow remote SSH access from other connected network participants.",
+    "peerSsh.cliClient": "CLI",
     "peerSsh.desktopClient": "Desktop Client",
     "peerSsh.cliStepIntro":
       "If you are using NetBird via CLI, you can enable SSH by running",
@@ -1736,6 +1741,10 @@ export const messages = {
     "peer.globalSettingDisabledPrefix":
       "Global setting '{setting}' is currently disabled. Enable the global setting to be able to toggle it individually per peer.",
     "peer.goToSettings": "Go to Settings",
+    "peerNameCell.viewPeerDetails": "View details of peer {name}",
+    "peerNameCell.userIdFallback": "user: {id}",
+    "peerConnect.offlineHelp":
+      "Connecting via SSH or RDP is only available when the peer is online.",
     "groups.searchGroup": "Search group...",
     "groups.searchGroups": "Search groups...",
     "groups.allGroups": "All Groups",
@@ -1802,6 +1811,7 @@ export const messages = {
     "actions.viewDetails": "View Details",
     "actions.delete": "Delete",
     "actions.edit": "Edit",
+    "actions.configure": "Configure",
     "actions.continue": "Continue",
     "actions.back": "Back",
     "authenticationTab.saveTitle": "Save Authentication Settings",
@@ -1897,6 +1907,9 @@ export const messages = {
     "networkResources.nameExistsError":
       "A resource with this name already exists. Please use another name.",
     "networkResources.addressDescriptionPrefix": "Enter a single",
+    "networkResources.addressLabel": "Address",
+    "networkResources.addressHelp":
+      "Enter a single IP address, CIDR block or domain name",
     "networkResources.addressIpHelp":
       "A single host address, e.g., 10.0.0.1 or 192.168.1.5. Use this to give access to a specific machine or service.",
     "networkResources.ipAddress": "IP Address",
@@ -1907,6 +1920,12 @@ export const messages = {
     "networkResources.addressDomainHelp":
       "A DNS domain name, e.g., service.internal, example.com or *.example.com to match all subdomains.",
     "networkResources.domainName": "Domain Name",
+    "networkResources.addressPlaceholder": "Address (IP, CIDR or Domain)",
+    "networkResources.addressDomainError":
+      "Please enter a valid domain, e.g. service.internal, example.com or *.example.com",
+    "networkResources.addressIpOrCidrError":
+      "Please enter a valid IP or CIDR, e.g., 10.0.0.21, 192.168.1.0/24",
+    "networkResources.policyCountDisabled": "{count} Disabled",
     "networkResources.optionalSettings": "Optional Settings",
     "networkResources.descriptionHelp":
       "Write a short description to add more context to this resource.",
@@ -1933,6 +1952,12 @@ export const messages = {
     "networkRoutingPeers.dontHave": "Don't have a routing peer?",
     "networkRoutingPeers.dontHaveHelp":
       "You can install NetBird with a setup key on one or more machines to act as routing peers.",
+    "networkRoutingPeers.notifyTitle": "Network Routing Peer",
+    "networkRoutingPeers.toggleDescription": "Routing peer is now {status}",
+    "networkRoutingPeers.masqueradeToggleDescription":
+      "Masquerade is now {status}",
+    "networkRoutingPeers.updating": "Updating routing peer...",
+    "networkRoutingPeers.updatingMasquerade": "Updating masquerade...",
     "networkRoutingPeers.enable": "Enable Routing Peer",
     "networkRoutingPeers.enableHelp":
       "Use this switch to enable or disable the routing peer.",
@@ -1942,6 +1967,7 @@ export const messages = {
     "networkRoutingPeers.createSetupKeyTitle": "Create a Setup Key?",
     "networkRoutingPeers.createSetupKeyDescription":
       "If you continue, a one-off setup key will be automatically created and you will be able to install NetBird.",
+    "networkRoutingPeers.setupKeyName": "Routing Peer ({name})",
     "networkRoutingPeers.masqueradeHelp":
       "Allow access to your private networks without configuring routes on your local routers or other devices.",
     "networkRoutingPeers.masqueradeTooltip":
@@ -1978,6 +2004,7 @@ export const messages = {
     "networkResources.updatedTitle": "Resource Updated",
     "networkResources.updatedDescription":
       "Resource '{name}' has been updated successfully.",
+    "networkResources.toggleDescription": "'{name}' is now {status}",
     "networkResources.updating": "Updating resource...",
     "networkResources.add": "Add Resource",
     "networkResources.linkLabel": "Resources",
@@ -2640,6 +2667,10 @@ export const messages = {
     "common.installNetBird": "安装 NetBird",
     "common.copiedToClipboard": "已复制到剪贴板",
     "common.close": "关闭",
+    "common.delete": "删除",
+    "common.disabled": "已禁用",
+    "common.none": "无",
+    "common.moreCount": "+ 另外 {count} 项",
     "common.learnMorePrefix": "了解更多关于",
     "common.inDocumentationSuffix": "的内容，请查看我们的文档。",
     "actions.save": "保存",
@@ -3212,6 +3243,7 @@ export const messages = {
     "networks.description":
       "网络功能让你无需在每台机器上都安装 NetBird，也能访问局域网和 VPC 中的内部资源。",
     "networks.policyLabel": "策略",
+    "networks.defaultPolicyName": "{name} 策略",
     "networks.multiPolicyTitle": "此策略被多个资源使用",
     "networks.multiPolicyDescription":
       "此策略使用一个或多个资源分组作为目标。{action}该策略也会影响以下资源：",
@@ -3482,6 +3514,9 @@ export const messages = {
     "peer.globalSettingDisabledPrefix":
       "全局设置“{setting}”当前已禁用。请先启用全局设置，然后才能为单个设备单独切换。",
     "peer.goToSettings": "前往设置",
+    "peerNameCell.viewPeerDetails": "查看设备 {name} 的详情",
+    "peerNameCell.userIdFallback": "用户：{id}",
+    "peerConnect.offlineHelp": "只有当设备在线时，才能通过 SSH 或 RDP 进行连接。",
     "invite.createUserTitle": "创建用户",
     "invite.inviteUserTitle": "邀请用户",
     "invite.cloudDescription": "邀请用户加入你的网络，并为他们设置权限。",
@@ -3967,6 +4002,7 @@ export const messages = {
     "peerSsh.enableAccess": "启用 SSH 访问",
     "peerSsh.enableAccessDescription":
       "允许其他已连接到网络的参与者通过 SSH 远程访问。",
+    "peerSsh.cliClient": "命令行",
     "peerSsh.desktopClient": "桌面客户端",
     "peerSsh.cliStepIntro":
       "如果你通过 CLI 使用 NetBird，可以运行以下命令启用 SSH：",
@@ -4267,6 +4303,7 @@ export const messages = {
     "actions.viewDetails": "查看详情",
     "actions.delete": "删除",
     "actions.edit": "编辑",
+    "actions.configure": "配置",
     "actions.continue": "继续",
     "actions.back": "返回",
     "authenticationTab.saveTitle": "保存认证设置",
@@ -4360,6 +4397,8 @@ export const messages = {
     "networkResources.nameExistsError":
       "已存在同名资源，请使用其他名称。",
     "networkResources.addressDescriptionPrefix": "输入一个",
+    "networkResources.addressLabel": "地址",
+    "networkResources.addressHelp": "输入单个 IP 地址、CIDR 网段或域名",
     "networkResources.addressIpHelp":
       "单个主机地址，例如 10.0.0.1 或 192.168.1.5。用于为某台特定机器或服务授予访问权限。",
     "networkResources.ipAddress": "IP 地址",
@@ -4370,6 +4409,12 @@ export const messages = {
     "networkResources.addressDomainHelp":
       "DNS 域名，例如 service.internal、example.com 或 *.example.com 以匹配所有子域名。",
     "networkResources.domainName": "域名",
+    "networkResources.addressPlaceholder": "地址（IP、CIDR 或域名）",
+    "networkResources.addressDomainError":
+      "请输入有效域名，例如 service.internal、example.com 或 *.example.com",
+    "networkResources.addressIpOrCidrError":
+      "请输入有效 IP 或 CIDR，例如 10.0.0.21、192.168.1.0/24",
+    "networkResources.policyCountDisabled": "{count} 个已禁用",
     "networkResources.optionalSettings": "可选设置",
     "networkResources.descriptionHelp":
       "写一段简短描述，为这个资源补充更多上下文。",
@@ -4396,6 +4441,12 @@ export const messages = {
     "networkRoutingPeers.dontHave": "没有路由设备？",
     "networkRoutingPeers.dontHaveHelp":
       "您可以使用安装密钥在一台或多台机器上安装 NetBird 作为路由设备。",
+    "networkRoutingPeers.notifyTitle": "网络路由设备",
+    "networkRoutingPeers.toggleDescription": "路由设备当前为{status}",
+    "networkRoutingPeers.masqueradeToggleDescription":
+      "地址伪装当前为{status}",
+    "networkRoutingPeers.updating": "正在更新路由设备...",
+    "networkRoutingPeers.updatingMasquerade": "正在更新地址伪装...",
     "networkRoutingPeers.enable": "启用路由设备",
     "networkRoutingPeers.enableHelp":
       "使用此开关可启用或禁用此路由设备。",
@@ -4404,7 +4455,8 @@ export const messages = {
       "较小的跃点数表示较高的路由优先级。",
     "networkRoutingPeers.createSetupKeyTitle": "创建安装密钥？",
     "networkRoutingPeers.createSetupKeyDescription":
-      "如果继续，将自动创建一次性安装密钥，您便可安装 NetBird。",
+      "如果继续，将自动创建一个一次性安装密钥，你随后就可以安装 NetBird。",
+    "networkRoutingPeers.setupKeyName": "路由设备（{name}）",
     "networkRoutingPeers.masqueradeHelp":
       "在不配置本地路由器或其他设备上的路由的情况下，允许访问您的专用网络。",
     "networkRoutingPeers.masqueradeTooltip":
@@ -4441,6 +4493,7 @@ export const messages = {
     "networkResources.updatedTitle": "资源已更新",
     "networkResources.updatedDescription":
       "资源“{name}”已成功更新。",
+    "networkResources.toggleDescription": "“{name}”当前为{status}",
     "networkResources.updating": "正在更新资源...",
     "networkResources.add": "添加资源",
     "networkResources.linkLabel": "资源",

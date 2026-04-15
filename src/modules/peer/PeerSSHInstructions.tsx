@@ -61,7 +61,7 @@ export const PeerSSHInstructions = ({
             <SegmentedTabs.List className={"rounded-lg border"}>
               <SegmentedTabs.Trigger value={"cli"}>
                 <TerminalSquare size={16} />
-                CLI
+                {t("peerSsh.cliClient")}
               </SegmentedTabs.Trigger>
               <SegmentedTabs.Trigger value={"gui"}>
                 <NetBirdIcon size={16} />
